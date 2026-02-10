@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pagetitle"></title>
+  <link rel="icon" href="https://files.catbox.moe/g5hdxh.jpg" type="image/png">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="dark-mode">
+
+  <!-- Search Modal -->
+  <div id="search-modal" class="search-modal">
+    <div class="search-container">
+      <div class="search-header">
+        <div class="search-input-wrapper">
+          <i class="ri-search-line search-icon"></i>
+          <input 
+            type="text" 
+            id="modal-search-input" 
+            placeholder="Search endpoints..." 
+            class="search-input"
+            autofocus
+          />
+          <button onclick="closeSearch()" class="search-close">
+            <i class="ri-close-line"></i>
+          </button>
+        </div>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
+
+  <div class="app-container">
+    
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar sidebar-dark">
+      
+      <div class="sidebar-content">
+        <!-- Logo -->
+        <div class="sidebar-logo">
+          <div class="logo-square">
+            <img id="logo" src="" alt="Logo" class="logo-image" />
+          </div>
+          <span id="webtitle-sidebar" class="logo-text"></span>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div class="sidebar-section">
+          <h2 class="section-title">NAVIGATION</h2>
+          <a class="menu-item menu-item-dark" href="/" id="dashboard-link">
+            <i class="ri-dashboard-line"></i>
+            <span>Dashboard</span>
+          </a>
+        </div>
+
+        <!-- Endpoints Section -->
+        <div class="sidebar-section">
+          <h2 class="section-title">ENDPOINTS</h2>
+          <nav id="menu" class="menu-nav"></nav>
+        </div>
+
+        <!-- Support Section -->
+        <div class="sidebar-section">
+          <h2 class="section-title">SUPPORT</h2>
+          <div class="misc-links">
+            <a id="github-link" href="#" target="_blank" rel="noopener noreferrer" class="menu-item menu-item-dark">
+              <i class="ri-github-fill"></i>
+              <span>GitHub</span>
+            </a>
+            <a id="whatsapp-link" href="#" target="_blank" rel="noopener noreferrer" class="menu-item menu-item-dark">
+              <i class="ri-whatsapp-line"></i>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer">
+        <span>© SNOVA API</span>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+      
+      <!-- Header -->
+      <header id="header" class="header header-dark">
+        <div class="header-left">
+          <button id="menu-btn" class="menu-toggle">
+            <i class="ri-menu-line"></i>
+          </button>
+          <div id="webtitle-header" class="header-title"></div>
+        </div>
+        
+        <div class="header-actions">
+          <button class="action-btn" onclick="openSearch()">
+            <i class="ri-search-line"></i>
+          </button>
+          
+          <!-- Theme Toggle -->
+          <button class="action-btn" id="theme-btn" onclick="toggleTheme()">
+            <i id="theme-icon" class="ri-moon-line"></i>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Content Area -->
+      <main class="main-content">
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+          
+          <!-- Server Status -->
+          <div class="stat-card card-dark">
+            <div class="stat-header">
+              <span class="stat-label">SERVER STATUS</span>
+              <i class="ri-checkbox-circle-line stat-icon"></i>
+            </div>
+            <div class="stat-body">
+              <div class="status-line">
+                <span class="status-indicator"></span>
+                <span class="status-text">OPERATIONAL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Battery -->
+          <div class="stat-card card-dark">
+            <div class="stat-header">
+              <span class="stat-label">DEVICE BATTERY</span>
+              <i class="ri-battery-charge-line stat-icon"></i>
+            </div>
+            <div class="stat-body">
+              <p id="battery-status" class="stat-value">--</p>
+            </div>
+          </div>
+
+          <!-- Endpoints -->
+          <div class="stat-card card-dark">
+            <div class="stat-header">
+              <span class="stat-label">TOTAL ENDPOINTS</span>
+              <i class="ri-route-line stat-icon"></i>
+            </div>
+            <div class="stat-body">
+              <p id="total-endpoints" class="stat-value">0</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider"></div>
+
+        <!-- Owner Section -->
+        <div class="owner-section">
+          <h2 class="section-heading">DEVELOPERS</h2>
+          <div id="owner-grid" class="owner-grid">
+            <!-- Will be populated by JS -->
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider"></div>
+
+        <!-- Credits -->
+        <div class="credits-section">
+          <h2 class="section-heading">CREDITS</h2>
+          <div class="credits-grid">
+            
+            <div id="credit-raven" class="credit-card card-dark">
+              <div class="credit-header">
+                <div class="credit-avatar-wrapper">
+                  <img id="raven-image" src="" alt="Raven" class="credit-avatar" />
+                </div>
+                <div class="credit-info">
+                  <h3 class="credit-name">RAVEN</h3>
+                  <p class="credit-role">Creator Snova API</p>
+                </div>
+              </div>
+              <p class="credit-desc">Nothing.</p>
+            </div>
+
+            <div id="credit-yohwa" class="credit-card card-dark">
+              <div class="credit-header">
+                <div class="credit-avatar-wrapper">
+                  <img id="yohwa-image" src="" alt="Yohwa" class="credit-avatar" />
+                </div>
+                <div class="credit-info">
+                  <h3 class="credit-name">YOHWA</h3>
+                  <p class="credit-role">Design & Interface</p>
+                </div>
+              </div>
+              <p class="credit-desc">Mawu Desain Logo / GFX ? Chat Saja Ygy: wa.me/62895622105834</p>
+            </div>
+
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="/script.js"></script>
+
+</body>
+</html>

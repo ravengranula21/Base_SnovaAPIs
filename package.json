@@ -1,0 +1,19 @@
+{
+  "name": "snova-api",
+  "description": "Free Source Code API By Raven",
+  "author": "Raven",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "tags": [
+    "base",
+    "2k26"
+  ],
+  "dependencies": {
+    "axios": "^1.6.8",
+    "chalk": "^4.1.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "ssl-express-www": "^3.2.1"
+  }
+}

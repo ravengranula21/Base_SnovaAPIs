@@ -1,0 +1,9 @@
+[
+    {
+    "tag": "System",
+    "logo": "ri ri-server-fill",
+    "api": [
+      { "name": "Server Stats", "link": "/stats" }
+    ]
+  }
+]
